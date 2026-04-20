@@ -511,7 +511,7 @@ img {
 }
 
 .btn-sci {
-  margin-left: 50px; 
+  margin-left: 50px;
 }
 
 @media (max-width: 480px) {
@@ -520,14 +520,78 @@ img {
   }
 }
 
-.btn-sci{
-  margin-left:28px;
+.btn-sci {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-left: 28px;
+  position: relative;
+  z-index: 5;
 }
 
 /* MOBILE JADI TENGAH */
-@media (max-width:480px){
-  .btn-sci{
-    justify-content:center;
-    margin-left:0;
+@media (max-width: 480px) {
+  .btn-sci {
+    justify-content: center;
+    margin-left: 0;
   }
+}
+
+/* ICON BISA DIKLIK */
+.sci {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  z-index: 9999;
+}
+
+.sci a {
+  position: relative;
+  z-index: 9999;
+  pointer-events: auto;
+  cursor: pointer;
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.1rem;
+  color: #7cf12e;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(124, 241, 46, 0.35);
+  backdrop-filter: blur(10px);
+
+  transition: all 0.35s ease;
+}
+
+.sci a:hover {
+  background: #7cf12e;
+  color: #111;
+  transform: translateY(-8px) scale(1.1);
+  box-shadow: 0 15px 30px rgba(124, 241, 46, 0.35);
+}
+
+/* BIAR GA KETUTUP */
+.home-info,
+.home-img {
+  position: relative;
+  z-index: 2;
+}
+
+.reveal,
+.parallax,
+.home-info {
+  pointer-events: none;
+}
+
+.sci,
+.sci a,
+.btn {
+  pointer-events: auto;
 }
