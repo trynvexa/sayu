@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="en">
   <head>
@@ -5,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personal Portfolio Website</title>
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
 
     <!-- Font Awesome -->
@@ -27,42 +27,48 @@
     </nav>
 
     <!-- HOME -->
-    <section class="home">
-      <!-- TEXT -->
-      <div class="home-info">
+    <section class="home reveal">
+      <div class="home-info reveal parallax" data-speed="0.05">
         <h1>M.ZIKRI</h1>
         <h2>I'm a Frontend Developer</h2>
 
-        <p>
-          Kumpulan karya terbaik yang mencerminkan kemampuan, kreativitas, dan pengalaman saya dalam berbagai proyek, disusun rapi untuk menunjukkan kualitas, konsistensi, serta perkembangan profesional secara jelas dan menarik bagi pembaca
-          serta memberikan gambaran lengkap.
-        </p>
+        <p>Kumpulan karya terbaik yang mencerminkan kemampuan, kreativitas, dan pengalaman saya dalam berbagai proyek.</p>
 
         <div class="btn-sci">
           <a href="#" class="btn">Register Now</a>
 
           <div class="sci">
-            <a href="https://www.instagram.com/rick_watts7/" target="_blank">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.tiktok.com/@frince_nael7" target="_blank">
-              <i class="fab fa-tiktok"></i>
-            </a>
-            <a href="https://trynvexa.github.io" target="_blank">
-              <i class="fab fa-github"></i>
-            </a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
           </div>
         </div>
       </div>
 
-      <!-- IMAGE (KANAN) -->
-      <div class="home-img">
+      <div class="home-img reveal parallax" data-speed="0.1">
         <div class="img-box">
           <div class="img-item">
-            <img src="img.png" alt="" />
+            <img src="img.png" alt="profile" />
           </div>
         </div>
       </div>
     </section>
+
+    <!-- JS -->
+    <script>
+      const reveals = document.querySelectorAll(".reveal");
+
+      function revealOnScroll() {
+        reveals.forEach((el) => {
+          const top = el.getBoundingClientRect().top;
+          if (top < window.innerHeight * 0.85) {
+            el.classList.add("active");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", revealOnScroll);
+      revealOnScroll();
+    </script>
   </body>
 </html>
