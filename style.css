@@ -216,6 +216,31 @@ img {
   border: 2px solid var(--green);
   display: flex;
   justify-content: center;
+  .btn-sci {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    margin-left: 18px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 480px) {
+    .btn-sci {
+      justify-content: flex-start;
+      margin-left: 12px;
+    }
+  }
+
+  .btn-sci {
+    margin-left: 28px; /* tadi 18px, sekarang lebih geser dikit */
+  }
+
+  @media (max-width: 480px) {
+    .btn-sci {
+      margin-left: 20px;
+    }
+  }
   align-items: center;
   color: var(--green);
   font-size: 1rem;
@@ -266,5 +291,243 @@ img {
   .img-box {
     width: 360px;
     height: 360px;
+  }
+}
+
+/* ================= REVEAL PREMIUM ================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(80px) scale(0.92);
+  filter: blur(10px);
+  transition:
+    opacity 1s ease,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* DELAY BIAR MASUK SATU2 */
+.home-img.reveal {
+  transition-delay: 0.1s;
+}
+
+.home-info.reveal {
+  transition-delay: 0.3s;
+}
+
+.portfolio-box.reveal {
+  transition-delay: 0.2s;
+}
+
+/* ================= BUTTON PREMIUM ================= */
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  padding: 12px 32px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #7cf12e, #5fd81e);
+  color: #1f232e;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: none;
+  box-shadow: 0 10px 25px rgba(124, 241, 46, 0.35);
+  transition: all 0.35s ease;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: skewX(-25deg);
+  transition: 0.6s;
+}
+
+.btn:hover::before {
+  left: 140%;
+}
+
+.btn:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 18px 35px rgba(124, 241, 46, 0.45);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* ================= ULTRA PREMIUM BUTTON ================= */
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  padding: 14px 36px;
+  border-radius: 60px;
+  background: linear-gradient(135deg, #9cff4f, #7cf12e, #57d900);
+  background-size: 200% 200%;
+  color: #111;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border: none;
+  box-shadow:
+    0 12px 28px rgba(124, 241, 46, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: all 0.4s ease;
+  animation: btnGlow 3s linear infinite;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -140%;
+  width: 55%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.45);
+  transform: skewX(-25deg);
+  transition: 0.7s;
+}
+
+.btn:hover::before {
+  left: 150%;
+}
+
+.btn:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow:
+    0 20px 40px rgba(124, 241, 46, 0.45),
+    0 0 25px rgba(124, 241, 46, 0.35);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+@keyframes btnGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ================= ULTRA PREMIUM ICON ================= */
+
+.sci {
+  display: flex;
+  gap: 14px;
+}
+
+.sci a {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.15rem;
+  color: #7cf12e;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(124, 241, 46, 0.35);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sci a::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7cf12e, transparent, #7cf12e);
+  z-index: -1;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.sci a:hover::before {
+  opacity: 1;
+}
+
+.sci a:hover {
+  color: #111;
+  background: #7cf12e;
+  transform: translateY(-10px) rotate(10deg) scale(1.12);
+  box-shadow:
+    0 18px 35px rgba(124, 241, 46, 0.38),
+    0 0 18px rgba(124, 241, 46, 0.3);
+}
+
+/* ICON BERGERAK HALUS */
+.sci a:nth-child(1) {
+  animation: float1 2.8s ease-in-out infinite;
+}
+.sci a:nth-child(2) {
+  animation: float1 3.2s ease-in-out infinite;
+}
+.sci a:nth-child(3) {
+  animation: float1 3.6s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.btn-sci {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-left: 18px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .btn-sci {
+    justify-content: flex-start;
+    margin-left: 12px;
+  }
+}
+
+.btn-sci {
+  margin-left: 50px; 
+}
+
+@media (max-width: 480px) {
+  .btn-sci {
+    margin-left: 20px;
+  }
+}
+
+.btn-sci{
+  margin-left:28px;
+}
+
+/* MOBILE JADI TENGAH */
+@media (max-width:480px){
+  .btn-sci{
+    justify-content:center;
+    margin-left:0;
   }
 }

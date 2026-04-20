@@ -55,19 +55,22 @@
 
     <!-- JS -->
     <script>
-      const reveals = document.querySelectorAll(".reveal");
+      /* BOX REVEAL */
+      const boxes = document.querySelectorAll(".reveal");
 
-      function revealOnScroll() {
-        reveals.forEach((el) => {
-          const top = el.getBoundingClientRect().top;
-          if (top < window.innerHeight * 0.85) {
-            el.classList.add("active");
+      function showBox() {
+        boxes.forEach((box) => {
+          let posisi = box.getBoundingClientRect().top;
+          let layar = window.innerHeight - 100;
+
+          if (posisi < layar) {
+            box.classList.add("active");
           }
         });
       }
 
-      window.addEventListener("scroll", revealOnScroll);
-      revealOnScroll();
+      window.addEventListener("scroll", showBox);
+      window.addEventListener("load", showBox);
     </script>
   </body>
 </html>
